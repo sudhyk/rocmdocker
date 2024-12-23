@@ -27,5 +27,6 @@ export PIP_ROOT_USER_ACTION=ignore
 cd /root
 
 chmod -R 777 ./ComfyUI/custom_nodes
+chmod -R 777 ./ComfyUI/models
 
 python3 ./ComfyUI/main.py --listen --port 8188 ${CLI_ARGS}
