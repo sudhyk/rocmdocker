@@ -1,6 +1,14 @@
 # Compose file for AMD GPU
 
 services:
+ portainer:
+    image: portainer/portainer-ce:latest
+    ports:
+      - "9443:9443"
+    volumes:
+      - "./portainerdata:/data"
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
   comfyui:
     init: true
     container_name: comfyui-rocm
@@ -25,3 +33,4 @@ services:
     security_opt:
       - seccomp:unconfined
       - label:disable
+    restart: unless-stopped
